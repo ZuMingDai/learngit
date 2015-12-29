@@ -17,7 +17,9 @@ window下安装git
 	$git init
 6、关联远程库
 	$git remote add origin git@github.com:ZuMingDai/srs-orxyd.git
-	注意：
+    或者(跳过步骤7)：
+    	$git clone https://github.com/ZuMingDai/srs-oryxd.git
+   
 7、把远程代码pull下来
 	$git pull origin master
 
@@ -29,3 +31,7 @@ window下安装git
 	$git commit -m "注释"
 10、把更新的内容push到服务器
 	$git push origin master
+	
+其他：
+删除远程关联：
+	git remote remove origin   //LoggerTrace.Println("apply log level", c.Log.Level)
