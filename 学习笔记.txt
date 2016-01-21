@@ -1,0 +1,1 @@
+1、可以使用-race参数对程序代码做竞争检测，如在Sublime Text开发环境中，执行 go run -race xxx.go 。（在LiteIDE开发环境中，还不知道怎么设置这个参数？？）
