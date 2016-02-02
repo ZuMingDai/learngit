@@ -1,1 +1,37 @@
 1、可以使用-race参数对程序代码做竞争检测，如在Sublime Text开发环境中，执行 go run -race xxx.go 。（在LiteIDE开发环境中，还不知道怎么设置这个参数？？）
+
+
+
+2、func xxx()<-chan bool{} 定义返回值只读
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+var ch chan int = make(chan int)
+
+func ROchan() <-chan int {
+	return ch
+}
+
+func SetChan() {
+	ch <- 4
+}
+
+//不断取出chan值
+func GetChan() {
+	for {
+		fmt.Println(<-ch)
+	}
+
+}
+
+func main() {
+	go GetChan()
+	SetChan()
+	ROchan()
+	//	ROchan() <- 5 //出错，ROchan() <- 5 (send to receive-only type <-chan int)，把ROchan()定义成 func ROchan() chan int{}就没问题
+	time.Sleep(1e9)
+}
