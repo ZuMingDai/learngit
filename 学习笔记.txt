@@ -41,3 +41,8 @@ func main() {
 var index int
 fmt.Scanf("%d\n", &index)
 使用fmt.Scanf输入时，要加\n，否则输入的数据会出现两次
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+json转换成go结构体
+http://www.bejson.com/jsonviewernew/
+https://mholt.github.io/json-to-go/
