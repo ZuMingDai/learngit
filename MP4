@@ -1,0 +1,24 @@
+mp4
+
+ftyp                        file type and compatibility 文件类型和兼容性
+moov                        container for all the metadata  所有数据的容器
+    mvhd                    movie header, overall declarations  视频头部，包含全部的定义
+    trak                    container for an individual track or stream 轨道或视频流的容器
+        tkhd                track header, overall information about the track 轨道头部，包含轨道所有的信息
+        mdia                container for the media information in a track  轨道中的媒体信息容器
+            mdhd            media header, overall information about the media 媒体头部，包含所有的媒体信息
+            hdlr            handler, declares the media (handler) type  处理器，定义媒体类型
+            minf            media information container 媒体信息容器
+                vmhd--      video media header, overall information (video track only)  视频媒体头，包括所有的信息（仅视频轨道）
+                dinf        data information box, container 数据信息box，容器
+                    dref    data reference box, declares source(s) of media data in track 数据参考box,在轨道中定义媒体数据的来源
+                stbl        sample table box, container for the time/space map  简单(样本？)的制表box,为time/space map的容器
+                    stsd    sample descriptions (codec types, initialization etc.) 简要(样本？)说明（编码器类型，初始化信息等） 
+                    stts    (decoding) time-to-sample （解码）时间到(样本？)
+                    stss--  sync sample table (random access points)  同步(样本？)表（随机使用）
+                    stsc    sample-to-chunk, partial data-offset information //sample to 块，局部数据位移信息
+                    stsz--  sample sizes (framing)  sample大小（组帧？）
+                    stco    chunk offset, partial data-offset information 块位移，局部的数据位移信息
+mdat--                      media data container  媒体数据容器
+free--                      free space  空闲空间
+                
