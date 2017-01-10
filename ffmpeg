@@ -1,0 +1,2 @@
+# mp4文件moov前置,代码可参考ffmpeg/tools目录下的qt-faststart.c文件
+ffmpeg.exe -i input.mp4 -c copy -f mp4 -movflags faststart output.mp4
