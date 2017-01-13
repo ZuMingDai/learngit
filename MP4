@@ -2,7 +2,7 @@ mp4
 
 ftyp                        file type and compatibility 文件类型和兼容性
 moov                        container for all the metadata  所有数据的容器
-    mvhd                    movie header, overall declarations  视频头部，包含全部的定义
+    mvhd                    movie header, overall declarations  视频头部，包含全部的定义--存放未压缩过的影片信息的头容器
     trak                    container for an individual track or stream 轨道或视频流的容器
         tkhd                track header, overall information about the track 轨道头部，包含轨道所有的信息
         mdia                container for the media information in a track  轨道中的媒体信息容器
