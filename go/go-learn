@@ -1,0 +1,78 @@
+Git is a version control system.
+Git is free software.
+git has a mutable index called stage.
+git tracks changes.
+window下安装git
+1、在官网地址：http://msysgit.github.io下载window版本并安装（默认即可）
+2、安装完成后设置环境变量 如：path= D:\Program Files\Git\bin
+3、设置账号信息
+	git config --global user.name "你的github用户名"
+	git config --global user.email "你的github邮箱地址"
+4、ssh认证
+	打开git bash终端，键入：ssh-keygen -t rsa -C "邮箱地址"，一路回车，就OK了
+	在c盘，当前用户文件夹下，有个.ssh 文件夹，在里边 找到 id_rsa.pub文件，用记事本打开，复制其中的全部内容。
+	登陆你的GitHub账户，依次点击Account Settings > SSH Public Keys > Add another public key，把id_rsa.pub中的内容拷贝进去 。
+
+5、创建版本库
+	$git init
+6-1 关联远程库
+	$git remote add origin git@github.com:ZuMingDai/srs-orxyd.git
+6-2   或者(跳过步骤7)：
+    	$git clone https://github.com/ZuMingDai/srs-oryxd.git
+   
+7、把远程代码pull下来
+	$git pull origin master
+
+
+    修改代码后，需要把代码push在服务器上
+8、把修改的文件加到代码库
+	$git add .或git add  file 
+9、把新加的文件提交到代码库
+	$git commit -m "注释"
+10、把更新的内容push到服务器
+	$git push origin master
+
+	
+其他：
+删除远程关联：
+	git remote remove origin   //LoggerTrace.Println("apply log level", c.Log.Level)
+使用6-2方法，在每次push代码时都会要求输入用户名和密码，可修改目录下的.git/config文件：
+	[remote "origin"]
+	url = https://github.com/ZuMingDai/srs-oryxd.git
+	改成：
+	[remote "origin"]
+	url = git@github.com:ZuMingDai/srs-oryxd.git
+
+/////////////////////////////////////////////////////////////////////////////////////
+//centos 下安装go+sublime+gosublime+html/css/js
+1、下载go安装
+	a、这里采用压缩包进行安葬，处于下载速度第考虑，采用来国内第下载，http://www.golangtc.com/download，下载最新第1.8版本 go1.8.linux-amd64.tar.gz，
+	b、下载后解压 #tar -zxf go1.8.linux-amd64.tar.gz, 然后把解压出来的go目录放到/usr/local,命令#mv go /usr/local
+	c、设置环境变量，#vim /etc/profile ,在文件尾部添加：
+		export GOROOT="/usr/local/go"
+		export GOPATH="/home/dawing/mygo"
+		export GOBIN=$GOROOT/bin
+		export PATH=$PATH:$GOBIN:$GOPATH/bin
+		其中，mygoo是本地第go工程目录
+	d、#source /etc/profile s使配置生效，然后执行
+		# go version
+		go version go1.8 linux/amd64	//表示安葬成功
+2、下载安装sublime
+	a、下载 https://www.sublimetext.com/3 下载最新版 sublime_text_3_build_3126_x64.tar.bz2
+	b、解压 #tar -jxf sublime_text_3_build_3126_x64.tar.bz2
+	c、# mv sublime_text_3 /usr/local 移动到/usr/local目录
+	d、#ln -s /usr/local/sublime_text_3/sublime_text /home/dawing/Desktop
+3、安装gosublime和html/css/js插件
+	a、打开sublime,按ctrl+`(或者菜单-viem-show console),打开console命令窗口,
+	sublime3 输入：
+	import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+	sublime2输入：
+	import urllib2,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation') 
+	输入完成后，按回车确认	参考：https://packagecontrol.io/installation#st3
+
+	b、重启sublime，按ctrl+shift+p(或者菜单-tools-command palette),在出现第对话框中输入install package,按回车，在新的对话框中输入gosublime并回车，开始安葬插件，
+	   html/css/js类似，在对话框中输入html/css/js 回车安葬即可。
+
+
+
+	
